@@ -1,0 +1,25 @@
+{
+  "name": "rest_string_parser",
+  "version": "1.0.0",
+  "description": "architecture distribuées",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LorisGitHub/StringParser.git"
+  },
+  "author": "Loris Benoit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LorisGitHub/StringParser/issues"
+  },
+  "homepage": "https://github.com/LorisGitHub/StringParser#readme",
+  "dependencies": {
+    "body-parser": "1.7.0",
+    "express": "^4.8.7",
+    "nlp-js-tools-french": "^1.0.9",
+    "sqlite3": "^4.1.1"
+  }
+}
