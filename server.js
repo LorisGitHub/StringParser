@@ -150,7 +150,6 @@ app.get('/parse/:msg', function(req, resp){
                 throw err;
             }
             if(jsonObj.action === null){
-                console.log(row);
                 jsonObj.action = row.action;
                 complete();
             }
@@ -161,8 +160,13 @@ app.get('/parse/:msg', function(req, resp){
                 throw err;
             }
             if(jsonObj.track === null){
-                console.log(row);
-                jsonObj.track = row.name;
+                jsonObj.track = {
+                    name: row.name,
+                    artist: row.artist,
+                    type: row.type,
+                    duration: row.duration,
+                    lob: row.lob
+                }
                 complete();
             }
         });
@@ -183,9 +187,13 @@ app.get('/parse/:msg', function(req, resp){
     });
 
     function complete(){
-        if(jsonObj.track !== null && jsonObj.action !== null && sended === false ){
-            sended = true;
-            resp.send(jsonObj);
+        if( jsonObj.action !== null && sended === false ){
+            if(jsonObj.action === "Play" && jsonObj.track === null){
+                console.log('');
+            } else {
+                sended = true;
+                resp.send(jsonObj);
+            }
         }
     }
 
